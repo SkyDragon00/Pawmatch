@@ -1,129 +1,279 @@
 <% content_for :title, "Create your Pawmatch account" %>
-<% content_for :body_class, "paw-page" %>
+<% content_for :body_class, "bg-background text-on-background min-h-screen selection:bg-primary-container selection:text-on-primary-container paw-signup-body" %>
 
-<main class="paw-container" style="padding: 2rem 0 3rem;">
-  <div class="paw-auth-shell">
-    <section class="paw-auth-panel">
-      <a class="paw-brand" href="<%= root_path %>">
-        <span class="paw-brand__mark">
-          <%= image_tag "/Pawmatch%20Logo.png", alt: "Pawmatch logo", class: "paw-brand__logo" %>
-        </span>
-        <span>Pawmatch</span>
-      </a>
+<% content_for :head do %>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#E91E63",
+            "on-primary": "#ffffff",
+            "primary-container": "#FFD8E4",
+            "on-primary-container": "#3D0018",
+            secondary: "#74565F",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#FFD9E2",
+            "on-secondary-container": "#2B151C",
+            tertiary: "#7C5635",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#FFDCC0",
+            "on-tertiary-container": "#2E1500",
+            error: "#BA1A1A",
+            "on-error": "#ffffff",
+            "error-container": "#FFDAD6",
+            "on-error-container": "#410002",
+            background: "#FFF8F9",
+            "on-background": "#201A1B",
+            surface: "#FFF8F9",
+            "on-surface": "#201A1B",
+            "surface-variant": "#F2DDE1",
+            "on-surface-variant": "#514347",
+            outline: "#837377",
+            "outline-variant": "#D5C2C6",
+            "inverse-surface": "#352F30",
+            "inverse-on-surface": "#FAEEEE",
+            "inverse-primary": "#FFB1C8",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-container-low": "#FFF0F2",
+            "surface-container": "#FAEAEF",
+            "surface-container-high": "#F5E4E9",
+            "surface-container-highest": "#EFDEE4"
+          },
+          borderRadius: {
+            DEFAULT: "1rem",
+            lg: "2rem",
+            xl: "3rem",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
 
-      <h1>Create your dog’s profile.</h1>
-      <p>
-        Start with email and password, then add your dog’s details so we can set up the right
-        kind of match.
-      </p>
+    .paw-signup-body {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      background: #FFF8F9;
+    }
 
-      <div class="paw-stepper" aria-label="Signup steps">
-        <div class="paw-stepper__item is-active">1. Account</div>
-        <div class="paw-stepper__item">2. Dog profile</div>
+    .paw-signup-logo {
+      height: 2.1rem;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+<% end %>
+
+<header class="sticky top-0 z-50 bg-rose-50/70 backdrop-blur-xl shadow-sm shadow-rose-200/50">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto font-['Plus_Jakarta_Sans'] tracking-tight">
+    <a class="flex items-center gap-3" href="<%= root_path %>">
+      <%= image_tag "/Pawmatch%20Logo.png", alt: "Pawmatch logo", class: "paw-signup-logo" %>
+      <span class="text-2xl font-black text-rose-700">Pawmatch</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-rose-700 border-b-2 border-rose-600 pb-1 font-bold transition-all duration-300" href="<%= root_path %>">Discover</a>
+      <a class="text-rose-400 font-medium hover:text-rose-800 transition-all duration-300" href="#">Chat</a>
+      <a class="text-rose-400 font-medium hover:text-rose-800 transition-all duration-300" href="#">Favorites</a>
+    </nav>
+    <div class="flex items-center gap-4">
+      <button class="material-symbols-outlined text-rose-600 active:scale-95 cursor-pointer" type="button">pets</button>
+      <div class="w-8 h-8 rounded-full bg-rose-200 overflow-hidden cursor-pointer active:scale-95">
+        <img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDOsNKgCRMu8irhKZLvox5ZDsNWtJnGI1ZqTF_cMGc2XJZNy8k-EE-fMkpmir8XiXM5CCcUPzzyH_n8zwktTxK71Rw-bqgGWFE7Z1K5BFOtAaeYRxJRZ78U8FMzOzoSOmyongNdQrE5kpssO3DaoTFe2jm_d_MSndnNrGFifasuZV9-deEoTedMTu-sX-OkNBn7n6dVtA0d9nHMdjWdXa9r_N36e4twm1PE5xQ_EsuMnQ_xQOcbDwwDKs0R10EVD2SFRp2kVptBw4" />
       </div>
+    </div>
+  </div>
+</header>
 
-      <div class="paw-card">
-        <h3>What you can add next</h3>
-        <p>Email, password, photo, dog name, breed, match goals, gender, and who your dog wants to meet.</p>
+<div class="fixed inset-0 z-[-1] opacity-20 pointer-events-none overflow-hidden">
+  <div class="absolute top-[-10%] right-[-10%] w-[60%] h-[60%] bg-primary-container rounded-full blur-[120px]"></div>
+  <div class="absolute bottom-[-10%] left-[-10%] w-[50%] h-[50%] bg-secondary-container rounded-full blur-[120px]"></div>
+</div>
+
+<main class="min-h-[calc(100vh-160px)] flex items-center justify-center p-6 md:p-12">
+  <div class="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+    <div class="lg:col-span-5 flex flex-col justify-between py-8">
+      <div>
+        <h1 class="text-5xl font-black text-on-background tracking-tighter mb-6">Pawmatch</h1>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-primary">potted_plant</span>
+            </div>
+            <p class="text-on-surface-variant font-medium">Join the premium canine community.</p>
+          </div>
+          <h2 class="text-4xl font-extrabold text-on-background leading-tight tracking-tight mt-8">
+            Curating the <span class="text-primary">perfect match</span> for your loyal companion.
+          </h2>
+        </div>
       </div>
-    </section>
+      <div class="hidden lg:block relative mt-12 rounded-xl overflow-hidden aspect-[4/5] shadow-2xl">
+        <img alt="Elegant Golden Retriever" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2q-FYfwretFYHtBzs0WZNRYPoa9eCVM0F1FV0j7ikQQVov25JiQHhHxCq_dd802j63F4LxHFyysdAGInJvkKoFtsZRsJRMnQdeKmAvmEQ47vujUmPvg1EyMXah_OC48aSlhz01p6Sfz2du1sF29ZSMDyQsGOUnf0lOEeLfIPb5aLGQfcrQhwcAR3ullCOComknLMSva8X9uaB6tmXJalQLogDmnzEofXwpUc127N5GnZJTxs5e3gn9z7FJ154lCRzI9ikPnI9Cw" />
+        <div class="absolute inset-0 bg-gradient-to-t from-on-background/60 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8 text-white">
+          <p class="text-sm font-bold uppercase tracking-widest text-primary-container">Featured Match</p>
+          <p class="text-2xl font-bold">Duke, the Noble Golden</p>
+          <p class="text-sm opacity-80">Looking for weekend training buddies</p>
+        </div>
+      </div>
+    </div>
 
-    <section class="paw-form-panel" data-controller="signup-flow">
-      <form class="paw-form" data-action="submit->signup-flow#finish" novalidate>
-        <div class="paw-form__section" data-signup-flow-target="step">
-          <div>
-            <label class="paw-label" for="email">Email</label>
-            <input class="paw-field" id="email" name="email" type="email" placeholder="you@example.com" required>
+    <div class="lg:col-span-7 flex items-center">
+      <div class="w-full bg-surface-container-low rounded-xl p-8 md:p-12 shadow-[0_0_32px_0_rgba(233,30,99,0.06)] relative overflow-hidden">
+        <div class="flex justify-between items-center mb-10">
+          <div class="flex gap-2">
+            <div class="h-1.5 w-8 rounded-full bg-primary" data-signup-flow-target="indicator"></div>
+            <div class="h-1.5 w-8 rounded-full bg-outline-variant/30" data-signup-flow-target="indicator"></div>
           </div>
-
-          <div>
-            <label class="paw-label" for="password">Password</label>
-            <input class="paw-field" id="password" name="password" type="password" placeholder="Create a password" minlength="8" required>
-            <div class="paw-help">Use at least 8 characters.</div>
-          </div>
-
-          <div class="paw-actions-row">
-            <a class="paw-button paw-button--ghost" href="<%= root_path %>">Back</a>
-            <button class="paw-button paw-button--primary" data-action="signup-flow#next" type="button">Continue</button>
-          </div>
+          <span class="text-sm font-bold text-primary" data-signup-flow-target="stepLabel">Step 1 of 2</span>
         </div>
 
-        <div class="paw-form__section" data-signup-flow-target="step" hidden>
-          <div>
-            <label class="paw-label" for="photo">Dog photo</label>
-            <input class="paw-field" id="photo" name="photo" type="file" accept="image/*">
-          </div>
-
-          <div class="paw-field-grid">
+        <form class="space-y-8" action="#" method="post" data-controller="signup-flow" data-action="submit->signup-flow#finish" novalidate>
+          <div class="space-y-8" data-signup-flow-target="step">
             <div>
-              <label class="paw-label" for="dog_name">Dog name</label>
-              <input class="paw-field" id="dog_name" name="dog_name" type="text" placeholder="Mochi" required>
+              <h3 class="text-3xl font-extrabold text-on-background mb-2">Create your account</h3>
+              <p class="text-on-surface-variant">Every great friendship starts with a simple hello.</p>
             </div>
 
-            <div>
-              <label class="paw-label" for="breed">Dog breed</label>
-              <input class="paw-field" id="breed" name="breed" type="text" placeholder="Golden Retriever" required>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="email">Email Address</label>
+                <input class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:bg-white text-on-surface ring-1 ring-outline-variant/30 transition-all" id="email" name="email" placeholder="hello@pawmatch.com" type="email" required />
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="password">Secure Password</label>
+                <input class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:bg-white text-on-surface ring-1 ring-outline-variant/30 transition-all" id="password" name="password" placeholder="••••••••" type="password" minlength="8" required />
+              </div>
             </div>
-          </div>
 
-          <div>
-            <span class="paw-label">What are they looking for?</span>
-            <div class="paw-checkboxes">
-              <label class="paw-checkbox">
-                <input type="checkbox" name="looking_for[]" value="playdates">
-                <span>Playdates 🐾<small>Short, friendly hangouts.</small></span>
-              </label>
-
-              <label class="paw-checkbox">
-                <input type="checkbox" name="looking_for[]" value="friends">
-                <span>New dog friends 🐕<small>Make long-term pals.</small></span>
-              </label>
-
-              <label class="paw-checkbox">
-                <input type="checkbox" name="looking_for[]" value="breeding">
-                <span>Breeding 🧬<small>For compatible pairing.</small></span>
-              </label>
-
-              <label class="paw-checkbox">
-                <input type="checkbox" name="looking_for[]" value="adoption">
-                <span>Adoption 🏡<small>Find a forever home.</small></span>
-              </label>
-
-              <label class="paw-checkbox">
-                <input type="checkbox" name="looking_for[]" value="training">
-                <span>Training buddies 🎓<small>Practice and learn together.</small></span>
-              </label>
+            <div class="flex items-center gap-4 pt-4">
+              <button class="flex-1 bg-primary text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group" type="button" data-action="signup-flow#next">
+                Continue to Profile
+                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
             </div>
           </div>
 
-          <div class="paw-field-grid">
+          <div class="space-y-8" data-signup-flow-target="step" hidden>
             <div>
-              <label class="paw-label" for="gender">Dog gender</label>
-              <select class="paw-select" id="gender" name="gender" required>
-                <option value="">Choose one</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
+              <h3 class="text-3xl font-extrabold text-on-background mb-2">Tell us about your dog</h3>
+              <p class="text-on-surface-variant">Complete the profile and create it when everything looks right.</p>
             </div>
 
-            <div>
-              <label class="paw-label" for="preferred_gender">Looking for</label>
-              <select class="paw-select" id="preferred_gender" name="preferred_gender" required>
-                <option value="">Choose one</option>
-                <option>Male</option>
-                <option>Female</option>
-              </select>
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="dog_photo">Dog Photo</label>
+                <input class="w-full bg-white border-none rounded-full px-6 py-3.5 focus:ring-2 focus:ring-primary focus:bg-white text-on-surface ring-1 ring-outline-variant/30 transition-all file:mr-3 file:rounded-full file:border-0 file:bg-primary file:px-4 file:py-2 file:text-sm file:font-bold file:text-white" id="dog_photo" name="dog_photo" type="file" accept="image/*" />
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="dog_name">Name of dog</label>
+                  <input class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:bg-white text-on-surface ring-1 ring-outline-variant/30 transition-all" id="dog_name" name="dog_name" placeholder="Mochi" type="text" required />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="dog_breed">Dog breed</label>
+                  <input class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary focus:bg-white text-on-surface ring-1 ring-outline-variant/30 transition-all" id="dog_breed" name="dog_breed" placeholder="Golden Retriever" type="text" required />
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <p class="text-xs font-bold text-primary uppercase tracking-widest ml-1">What are they looking for?</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <label class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ring-1 ring-outline-variant/30">
+                    <input class="rounded text-primary focus:ring-primary" type="checkbox" name="looking_for[]" value="Playdates" />
+                    <span class="font-semibold text-on-surface">Playdates 🐾</span>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ring-1 ring-outline-variant/30">
+                    <input class="rounded text-primary focus:ring-primary" type="checkbox" name="looking_for[]" value="New dog friends" />
+                    <span class="font-semibold text-on-surface">New dog friends 🐕</span>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ring-1 ring-outline-variant/30">
+                    <input class="rounded text-primary focus:ring-primary" type="checkbox" name="looking_for[]" value="Breeding" />
+                    <span class="font-semibold text-on-surface">Breeding 🧬</span>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ring-1 ring-outline-variant/30">
+                    <input class="rounded text-primary focus:ring-primary" type="checkbox" name="looking_for[]" value="Adoption" />
+                    <span class="font-semibold text-on-surface">Adoption 🏡</span>
+                  </label>
+                  <label class="flex items-center gap-3 bg-white rounded-2xl px-4 py-3 ring-1 ring-outline-variant/30 md:col-span-2">
+                    <input class="rounded text-primary focus:ring-primary" type="checkbox" name="looking_for[]" value="Training buddies" />
+                    <span class="font-semibold text-on-surface">Training buddies 🎓</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                  <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="dog_gender">Dog gender</label>
+                  <select class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary text-on-surface ring-1 ring-outline-variant/30" id="dog_gender" name="dog_gender" required>
+                    <option value="">Choose one</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold text-primary uppercase tracking-widest ml-1" for="looking_for_gender">Looking for</label>
+                  <select class="w-full bg-white border-none rounded-full px-6 py-4 focus:ring-2 focus:ring-primary text-on-surface ring-1 ring-outline-variant/30" id="looking_for_gender" name="looking_for_gender" required>
+                    <option value="">Choose one</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-stretch gap-3 pt-2">
+              <button class="md:w-auto bg-white text-primary font-bold py-4 px-6 rounded-full ring-1 ring-outline-variant/30 hover:bg-rose-50 transition-all" type="button" data-action="signup-flow#back">Back</button>
+              <button class="flex-1 bg-primary text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 group" type="submit">
+                Create Profile
+                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">check_circle</span>
+              </button>
             </div>
           </div>
 
-          <div class="paw-actions-row">
-            <button class="paw-button paw-button--ghost" data-action="signup-flow#back" type="button">Back</button>
-            <button class="paw-button paw-button--primary" type="submit">Create account</button>
+          <div class="hidden rounded-2xl bg-primary-container/50 text-on-primary-container px-6 py-5 font-bold" data-signup-flow-target="message"></div>
+        </form>
+
+        <div class="mt-10 flex flex-col md:flex-row items-center gap-4 text-center md:text-left border-t border-outline-variant/20 pt-8">
+          <p class="text-xs text-on-surface-variant flex-1 leading-relaxed">
+            By continuing, you agree to our <a class="text-primary font-bold hover:underline" href="#">Safety Guide</a> and <a class="text-primary font-bold hover:underline" href="#">Privacy Policy</a>.
+          </p>
+          <div class="flex items-center gap-2 bg-primary-container/30 px-3 py-1.5 rounded-full">
+            <span class="text-[10px] font-bold text-primary uppercase tracking-wider">Secure &amp; Encrypted</span>
+            <span class="material-symbols-outlined text-primary text-lg">verified_user</span>
           </div>
         </div>
-
-        <div class="paw-message is-hidden" data-signup-flow-target="message"></div>
-      </form>
-    </section>
+      </div>
+    </div>
   </div>
 </main>
+
+<footer class="bg-rose-50 w-full py-12 border-t border-rose-100">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-6 font-['Plus_Jakarta_Sans'] text-sm">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <span class="text-lg font-bold text-rose-700">Pawmatch</span>
+      <p class="text-rose-400 font-medium">© 2024 Pawmatch. Designed with affection.</p>
+    </div>
+    <nav class="flex flex-wrap justify-center gap-6">
+      <a class="text-rose-700 font-semibold hover:underline decoration-rose-300 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="<%= root_path %>">Discover</a>
+      <a class="text-rose-400 font-medium hover:underline decoration-rose-300 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Chat</a>
+      <a class="text-rose-400 font-medium hover:underline decoration-rose-300 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Favorites</a>
+      <a class="text-rose-400 font-medium hover:underline decoration-rose-300 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Privacy</a>
+      <a class="text-rose-400 font-medium hover:underline decoration-rose-300 underline-offset-4 transition-opacity opacity-80 hover:opacity-100" href="#">Terms</a>
+    </nav>
+  </div>
+</footer>

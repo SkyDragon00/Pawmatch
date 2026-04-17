@@ -1,10 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["step", "message"]
+  static targets = ["step", "message", "indicator", "stepLabel"]
 
   connect() {
     this.currentStep = 0
+    this.messageTarget.classList.add("hidden")
     this.showStep(this.currentStep)
   }
 
@@ -30,10 +31,21 @@ export default class extends Controller {
       return
     }
 
-    this.messageTarget.textContent = "Your Pawmatch profile is ready. This demo flow is now wired for the signup basics."
-    this.messageTarget.classList.remove("is-hidden")
-    this.element.reset()
-    this.showStep(0)
+    this.stepTargets.forEach((stepElement) => {
+      stepElement.hidden = true
+    })
+
+    this.messageTarget.textContent = "Profile created. Your dog is ready to start matching on Pawmatch."
+    this.messageTarget.classList.remove("hidden")
+
+    if (this.hasStepLabelTarget) {
+      this.stepLabelTarget.textContent = "Completed"
+    }
+
+    this.indicatorTargets.forEach((indicator) => {
+      indicator.classList.remove("bg-outline-variant/30")
+      indicator.classList.add("bg-primary")
+    })
   }
 
   showStep(stepIndex) {
@@ -42,10 +54,40 @@ export default class extends Controller {
     this.stepTargets.forEach((stepElement, index) => {
       stepElement.hidden = index !== stepIndex
     })
+
+    this.indicatorTargets.forEach((indicator, index) => {
+      if (index <= stepIndex) {
+        indicator.classList.remove("bg-outline-variant/30")
+        indicator.classList.add("bg-primary")
+      } else {
+        indicator.classList.remove("bg-primary")
+        indicator.classList.add("bg-outline-variant/30")
+      }
+    })
+
+    if (this.hasStepLabelTarget) {
+      this.stepLabelTarget.textContent = `Step ${stepIndex + 1} of ${this.stepTargets.length}`
+    }
   }
 
   validateCurrentStep() {
-    const fields = this.stepTargets[this.currentStep].querySelectorAll("input, select, textarea")
+    const currentStep = this.stepTargets[this.currentStep]
+    const fields = currentStep.querySelectorAll("input, select, textarea")
+
+    const lookingForOptions = currentStep.querySelectorAll('input[name="looking_for[]"]')
+
+    if (lookingForOptions.length > 0) {
+      const hasSelection = Array.from(lookingForOptions).some((option) => option.checked)
+
+      lookingForOptions.forEach((option) => {
+        option.setCustomValidity(hasSelection ? "" : "Select at least one option")
+      })
+
+      if (!hasSelection) {
+        lookingForOptions[0].reportValidity()
+        return false
+      }
+    }
 
     for (const field of fields) {
       if (!field.checkValidity()) {
