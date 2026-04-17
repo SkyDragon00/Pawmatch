@@ -10,4 +10,7 @@ class PagesController < ApplicationController
 
   def profile
   end
+
+  def messages
+  end
 end
