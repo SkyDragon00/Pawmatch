@@ -1,0 +1,231 @@
+<% content_for :title, "Your Pawmatch Profile" %>
+<% content_for :body_class, "bg-background font-body text-on-surface antialiased" %>
+
+<% content_for :head do %>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#E91E63",
+            "on-primary": "#ffffff",
+            "primary-container": "#FFD9E2",
+            "on-primary-container": "#3E001D",
+            secondary: "#74565F",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#FFD9E2",
+            "on-secondary-container": "#2B151C",
+            tertiary: "#7C5635",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#FFDCC0",
+            "on-tertiary-container": "#2E1500",
+            error: "#BA1A1A",
+            "on-error": "#ffffff",
+            "error-container": "#FFDAD6",
+            "on-error-container": "#410002",
+            background: "#FFF8F8",
+            "on-background": "#201A1B",
+            surface: "#FFF8F8",
+            "on-surface": "#201A1B",
+            "surface-variant": "#F2DDE1",
+            "on-surface-variant": "#514347",
+            outline: "#837377",
+            "outline-variant": "#D5C2C6",
+            "inverse-surface": "#362F30",
+            "inverse-on-surface": "#FAEEEF",
+            "inverse-primary": "#FFB1C8",
+            "surface-container-highest": "#F2DDE1",
+            "surface-container-high": "#F8E3E7",
+            "surface-container": "#FEE9ED",
+            "surface-container-low": "#FFF0F2",
+            "surface-container-lowest": "#FFFFFF",
+            "surface-bright": "#FFF8F8",
+            "surface-dim": "#E2D7D9"
+          },
+          borderRadius: {
+            DEFAULT: "9999px",
+            lg: "9999px",
+            xl: "9999px",
+            full: "9999px"
+          },
+          fontFamily: {
+            headline: ["Plus Jakarta Sans"],
+            body: ["Plus Jakarta Sans"],
+            label: ["Plus Jakarta Sans"]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      vertical-align: middle;
+    }
+
+    .editorial-shadow {
+      box-shadow: 0 0 32px 0 rgba(233, 30, 99, 0.06);
+    }
+
+    .paw-profile-logo {
+      height: 2rem;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+<% end %>
+
+<nav class="sticky top-0 z-50 w-full bg-rose-50/70 dark:bg-rose-950/70 backdrop-blur-xl shadow-sm shadow-rose-200/50 dark:shadow-none">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+    <a href="<%= root_path %>" class="flex items-center gap-3 text-2xl font-black text-rose-700 dark:text-rose-300 tracking-tight">
+      <%= image_tag "/Pawmatch%20Logo.png", alt: "Pawmatch logo", class: "paw-profile-logo" %>
+      <span>Pawmatch</span>
+    </a>
+    <div class="hidden md:flex gap-8 items-center font-['Plus_Jakarta_Sans'] tracking-tight">
+      <a class="text-rose-700 dark:text-rose-300 border-b-2 border-rose-600 dark:border-rose-400 pb-1 font-bold active:scale-95 cursor-pointer transition-all duration-300" href="<%= root_path %>">Discover</a>
+      <a class="text-rose-400 dark:text-rose-500 font-medium hover:text-rose-800 dark:hover:text-rose-200 active:scale-95 cursor-pointer transition-all duration-300" href="#">Chat</a>
+      <a class="text-rose-400 dark:text-rose-500 font-medium hover:text-rose-800 dark:hover:text-rose-200 active:scale-95 cursor-pointer transition-all duration-300" href="#">Favorites</a>
+    </div>
+    <div class="flex items-center gap-4">
+      <button class="p-2 hover:bg-rose-100 dark:hover:bg-rose-900/30 rounded-full transition-all active:scale-95 duration-200" type="button">
+        <span class="material-symbols-outlined text-rose-600 dark:text-rose-400">notifications</span>
+      </button>
+      <a href="<%= profile_path %>" class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-container active:scale-95 cursor-pointer transition-all">
+        <img alt="User profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPRtbOLepjAyRSvWjMfjFgu5q4uwQnxIllv1jdXJ4yI_YdOv8TvTDDudY8VhD9znUjEBCfT95PQEsQhI5PIU7k_oY0soiZ7yg1YByJVhpke9VxyHw_nIMaty3-M55vVpaA4U1C1l9-leIYyy9HzNHcKvFCZVHoHWZYHXUOAqpafki9x95f9pIUMCPFXSaMZ9LyF1cCGyg4Dq-HgytH-OPiJfDOsFgnlUpOJV__9foWzza01EEh_BWTsSsx1GxbuS4xWpstwEMaCIs"/>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-12 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-7 relative">
+      <div class="rounded-[3rem] overflow-hidden shadow-[0_0_32px_0_rgba(233,30,99,0.06)] aspect-[4/5] bg-surface-container-low relative">
+        <img class="w-full h-full object-cover" alt="Cheerful golden retriever sitting in a sunlit modern living room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBszcyhEDdJj5bmzfKIoDMgKLmyygjJIfCN7a4YZK0t8kA4SPoYWk6r1NHH4D4y-A5SexKeWpS-IjB95sttuIAiJfq0gwXZwH50K6B8DB-zk_lCRzh3KnKr5T0oabL83qPG2N22xOBad9yGkHIZJg-FkLRpBc5fFJvtZfo2VLMP18qabygj0o_Q6vm6AEViMNzs4UaUJAhwTLknBejb8tE2MOgqlDNnI74Ds-qQaARTjFhZjYdOXcWmv2FOPf3fkEqYH2UZhQXNi6c"/>
+        <div class="absolute bottom-8 left-8 right-8 p-6 bg-white/70 backdrop-blur-xl rounded-full shadow-lg flex justify-between items-center">
+          <div>
+            <p class="text-primary font-bold text-xs uppercase tracking-widest mb-1">Status</p>
+            <p class="text-on-surface font-semibold flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Ready for Playdates
+            </p>
+          </div>
+          <div class="flex -space-x-3">
+            <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-surface-container-high">
+              <img alt="Friendly labrador face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJQlV4aoKdKoXZUW9bwGSG8UGMGqNpJwfqaIr9OTjfu9IvMSiXnKC-iwra4zYfJlx5cffEtLW7a1gUKBwk59jsHYSqW2Z0GFZsT8jSw2R2rrF5qOAG7-7DbOyPDx4NgcCTtcmCTtl4s3FLd9GpKu6fCW_c0M9neUz--rPVjrLMmyHUUwgsL5aIMxWiwL3ttgJ4VXpez8pY3gJUNUdrQ4Cpztxb0xEqaFtBu_KRn7-y6J4YJjVi1P0ZiH01IxbdzcbALyRCra1pZCY"/>
+            </div>
+            <div class="w-10 h-10 rounded-full border-2 border-white overflow-hidden bg-surface-container-high">
+              <img alt="Playful french bulldog face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHH4mUBOmEPHXRRAJdW1efw8zEqx9k-e3l-igb-FdBzfSTzy3vjoAraOBuMkeqCF_R9Nd1XIk2lmJC8QtODC_K7lgn8LsnCgOmFxjUq9mboUhynLZtehlJDr2ycKT2EyKfzKXUH9BS3JccV7n9-3w3k8sAr9J-Mmg7K7x_ll2fGnOxMfJ5sKBbp_PdyL7233fplvKYdk9iqZ7U_DDHvXXhW2_RIDn7ayXkItpWQRBuRoYVlyMWWOYsQUxxxVIPSaXHsAzs_FAbLPE"/>
+            </div>
+            <div class="w-10 h-10 rounded-full border-2 border-white bg-primary-container flex items-center justify-center text-xs font-bold text-on-primary-container">+12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lg:col-span-5 space-y-8 lg:pl-4">
+      <div>
+        <div class="flex justify-between items-start mb-4">
+          <h1 class="text-6xl font-extrabold tracking-tighter text-on-background leading-none">Benson</h1>
+          <button class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold shadow-md hover:shadow-lg hover:brightness-110 active:scale-95 transition-all" type="button">Edit Profile</button>
+        </div>
+        <div class="flex items-center gap-4 text-on-surface-variant font-medium">
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary">potted_plant</span> Golden Retriever</span>
+          <span class="w-1 h-1 rounded-full bg-outline-variant"></span>
+          <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary">location_on</span> Austin, TX</span>
+        </div>
+      </div>
+
+      <div class="bg-primary-container/40 p-4 rounded-full inline-flex items-center gap-3 px-6">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">pets</span>
+        <span class="text-on-primary-container font-bold">98% Match Potential</span>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-primary font-bold text-sm tracking-widest uppercase">Looking For</h3>
+        <div class="flex flex-wrap gap-3">
+          <span class="bg-surface-container px-5 py-2 rounded-full text-on-secondary-container font-semibold text-sm border border-primary/10">Active Playmates</span>
+          <span class="bg-surface-container px-5 py-2 rounded-full text-on-secondary-container font-semibold text-sm border border-primary/10">Weekend Hiking</span>
+          <span class="bg-surface-container px-5 py-2 rounded-full text-on-secondary-container font-semibold text-sm border border-primary/10">Gentle Socialization</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h3 class="text-primary font-bold text-sm tracking-widest uppercase">Personality</h3>
+        <p class="text-on-surface-variant leading-relaxed text-lg italic border-l-4 border-primary/20 pl-4">
+          "Benson is a soul of pure sunshine. He loves chasing tennis balls almost as much as he loves mid-day naps under the oak tree. He's remarkably gentle with smaller dogs and is currently mastering the art of the perfect 'high five'."
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-4">
+        <div class="bg-surface-container-low p-5 rounded-3xl text-center border border-primary/5">
+          <p class="text-primary font-black text-2xl">2y</p>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-tighter">Age</p>
+        </div>
+        <div class="bg-surface-container-low p-5 rounded-3xl text-center border border-primary/5">
+          <p class="text-primary font-black text-2xl">65</p>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-tighter">Lbs</p>
+        </div>
+        <div class="bg-surface-container-low p-5 rounded-3xl text-center border border-primary/5">
+          <span class="material-symbols-outlined text-primary text-3xl">verified</span>
+          <p class="text-on-surface-variant text-xs font-bold uppercase tracking-tighter">Vetted</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="mt-24 space-y-8">
+    <div class="flex justify-between items-end">
+      <div>
+        <h2 class="text-4xl font-extrabold tracking-tight text-on-background">Benson's Moments</h2>
+        <p class="text-on-surface-variant">A glimpse into a day in the life of a very good boy.</p>
+      </div>
+      <button class="text-primary font-bold flex items-center gap-2 hover:underline underline-offset-4 transition-all" type="button">
+        View All Photos <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-[600px]">
+      <div class="md:col-span-2 md:row-span-2 rounded-[2rem] overflow-hidden bg-surface-container-high group">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Close up of a golden retriever's expressive face" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6PXSBpt9QlqHbXcpCcxSNOvvvgts0JfecVd9D-e_RDKUgEZfOnuMne3DgCbHpTLPj0cThnZwRN1n5FTbvZaBU-bcisulxNNu1eLpma80bPu2uZw2T7DFemujCpP7olMLbH2PnI6HSF7F0jvowo_rlXFy-ttvhWZqU3d1CiZ0na0f-pwUF0qpOz32z9RtD3wz58s8XINj4hr3CQex3Vwz_oqWUrGP34SNWD3HloAGapaVVRTBDrSeWRBBGfsDiZEchdsaZjUs-Uk8"/>
+      </div>
+      <div class="rounded-[2rem] overflow-hidden bg-surface-container-high group">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Happy golden retriever running through a field of wildflowers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzlWyFKATbYA3gORWNg0qad4-1kZBW2Q8R1kLRFqEqKbukQsqYdoAXtLX2WSZH-VqHy-M3c9VmhkQ_VKID_6dX0PwnHNc9NqgdGoSRfePt7aBbBqSdyrr_I9UcE7HhaYVNRJUpWZISXKKG498TlCH45czE1cHiYGnvxCU3bepv0VcTlU_lIxZYkZU82jDeEu95gEWMK_m9oRUR1XTY3TgT0Tl0TbV60y-v5b-oA4PXYaKIlymP2Q0CI5rvFTClljUKlEQYCEj-yBc"/>
+      </div>
+      <div class="rounded-[2rem] overflow-hidden bg-surface-container-high group">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Golden retriever puppy sleeping peacefully on a colorful blanket" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF9m6NltrkMqyNbrWUnftBOIrl0UoUy71kcjlNDL2hjt-O5Lke8mGsaWk7FCAaK_EnNibZU5ztsAgp-d6PyFfEP0351sazfE2km4jRkN1FA2H3bxeAHXy_D82AFJpVBS9AAvlgEed-oNe5-oLox5s7OinuTCU-ZvUxDg2NA4besoBSS8Q7oWdCvRw4BTj318N7X06pvoIoaaY59BOAugRdMxTuPl-HglVQ2ExmPXk1Q0ZiQITM7XHOkmPqzT-_OYgkAV8bTHotd4w"/>
+      </div>
+      <div class="md:col-span-2 rounded-[2rem] overflow-hidden bg-surface-container-high group">
+        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Golden retriever standing on a wooden dock overlooking a calm lake at dawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmD2210l8jRwKgWiDCipmQujF8aooYUT4wPeFZqqQQW4xgT_oZZTeLSQm7CAubBbaewgoB17Kt0zGKNBEXqUAaaFFiM0vDwFzPTOCrY_W9F-Ifti0jmaUHRnKcFHVlybEGGWUVvCcMmkWYbbWnZ_rt94kmKGxGZaGjHsJoKrrQk5UpZXXf3rjh6ANbvI2zJIH0wHSs3G_8g38nWPqqdnjrzuanVnT0I4X19nARmeo6mEH7tNKxLaObnCgHh2pOSfC1kDy8X8VNdic"/>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-rose-50 dark:bg-rose-950 w-full py-12 border-t border-rose-100 dark:border-rose-900">
+  <div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto gap-6 font-['Plus_Jakarta_Sans'] text-sm">
+    <div class="flex flex-col items-center md:items-start gap-2">
+      <div class="text-lg font-bold text-rose-700 dark:text-rose-300">Pawmatch</div>
+      <p class="text-rose-400 dark:text-rose-500 text-center md:text-left">© 2024 Pawmatch. Designed with affection.</p>
+    </div>
+    <div class="flex gap-6">
+      <a class="text-rose-600 dark:text-rose-400 font-semibold opacity-80 hover:opacity-100 hover:underline decoration-rose-300 underline-offset-4 transition-all" href="<%= root_path %>">Discover</a>
+      <a class="text-rose-600 dark:text-rose-400 font-semibold opacity-80 hover:opacity-100 hover:underline decoration-rose-300 underline-offset-4 transition-all" href="#">Chat</a>
+      <a class="text-rose-600 dark:text-rose-400 font-semibold opacity-80 hover:opacity-100 hover:underline decoration-rose-300 underline-offset-4 transition-all" href="#">Favorites</a>
+      <a class="text-rose-600 dark:text-rose-400 font-semibold opacity-80 hover:opacity-100 hover:underline decoration-rose-300 underline-offset-4 transition-all" href="#">Privacy</a>
+      <a class="text-rose-600 dark:text-rose-400 font-semibold opacity-80 hover:opacity-100 hover:underline decoration-rose-300 underline-offset-4 transition-all" href="#">Terms</a>
+    </div>
+    <div class="flex gap-4">
+      <div class="w-8 h-8 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 cursor-pointer hover:scale-110 transition-all">
+        <span class="material-symbols-outlined text-sm">public</span>
+      </div>
+      <div class="w-8 h-8 rounded-full bg-rose-100 dark:bg-rose-900/50 flex items-center justify-center text-rose-600 dark:text-rose-400 cursor-pointer hover:scale-110 transition-all">
+        <span class="material-symbols-outlined text-sm">share</span>
+      </div>
+    </div>
+  </div>
+</footer>

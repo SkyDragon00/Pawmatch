@@ -7,4 +7,7 @@ class PagesController < ApplicationController
 
   def signin
   end
+
+  def profile
+  end
 end
