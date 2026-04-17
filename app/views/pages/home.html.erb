@@ -1,0 +1,90 @@
+<% content_for :title, "Pawmatch - Find your dog the perfect date!" %>
+<% content_for :body_class, "paw-page" %>
+
+<nav class="paw-nav">
+  <div class="paw-container paw-nav__inner">
+    <a class="paw-brand" href="<%= root_path %>">
+      <span class="paw-brand__mark">
+        <%= image_tag "/Pawmatch%20Logo.png", alt: "Pawmatch logo", class: "paw-brand__logo" %>
+      </span>
+      <span>Pawmatch</span>
+    </a>
+
+    <div class="paw-nav__links">
+      <a class="paw-button paw-button--ghost" href="<%= signin_path %>">Sign in</a>
+      <a class="paw-button paw-button--primary" href="<%= signup_path %>">Create account</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="paw-hero">
+    <div class="paw-container paw-hero__grid">
+      <div>
+        <span class="paw-eyebrow">Find your dog the perfect date</span>
+        <h1>Match your pup with the <span>right companion.</span></h1>
+        <p>
+          Pawmatch helps dog parents find playdates, new friends, breeding matches, adoption
+          opportunities, and training buddies in one playful place.
+        </p>
+
+        <div class="paw-actions">
+          <a class="paw-button paw-button--primary" href="<%= signup_path %>">Create account</a>
+          <a class="paw-button paw-button--secondary" href="<%= signin_path %>">Sign in</a>
+        </div>
+      </div>
+
+      <div class="paw-visual" aria-hidden="true">
+        <div class="paw-visual__photo"></div>
+        <div class="paw-visual__badge">98% match rate</div>
+        <div class="paw-visual__card">
+          <strong>Pick the right kind of match</strong>
+          <p>Use filters for playdates, friends, breeding, adoption, or training partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="paw-section">
+    <div class="paw-container">
+      <div class="paw-section__heading">
+        <span class="paw-eyebrow">How it works</span>
+        <h2>Everything your dog needs to find a great match</h2>
+      </div>
+
+      <div class="paw-grid">
+        <article class="paw-card">
+          <div class="paw-icon">1</div>
+          <h3>Create a profile</h3>
+          <p>Add your dog’s photo, name, breed, and what they are looking for.</p>
+        </article>
+
+        <article class="paw-card">
+          <div class="paw-icon">2</div>
+          <h3>Choose the vibe</h3>
+          <p>Select one or more goals like playdates, new friends, breeding, adoption, or training buddies.</p>
+        </article>
+
+        <article class="paw-card">
+          <div class="paw-icon">3</div>
+          <h3>Meet nearby pups</h3>
+          <p>Sign in and start browsing dogs that fit your pet’s preferences and personality.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="paw-footer">
+  <div class="paw-container paw-footer__inner">
+    <div>
+      <strong>Pawmatch</strong>
+      <div>Made for dogs who deserve better matches.</div>
+    </div>
+
+    <div class="paw-mini-links">
+      <a href="<%= signin_path %>">Sign in</a>
+      <a href="<%= signup_path %>">Create account</a>
+    </div>
+  </div>
+</footer>

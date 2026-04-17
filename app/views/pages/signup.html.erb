@@ -1,0 +1,129 @@
+<% content_for :title, "Create your Pawmatch account" %>
+<% content_for :body_class, "paw-page" %>
+
+<main class="paw-container" style="padding: 2rem 0 3rem;">
+  <div class="paw-auth-shell">
+    <section class="paw-auth-panel">
+      <a class="paw-brand" href="<%= root_path %>">
+        <span class="paw-brand__mark">
+          <%= image_tag "/Pawmatch%20Logo.png", alt: "Pawmatch logo", class: "paw-brand__logo" %>
+        </span>
+        <span>Pawmatch</span>
+      </a>
+
+      <h1>Create your dog’s profile.</h1>
+      <p>
+        Start with email and password, then add your dog’s details so we can set up the right
+        kind of match.
+      </p>
+
+      <div class="paw-stepper" aria-label="Signup steps">
+        <div class="paw-stepper__item is-active">1. Account</div>
+        <div class="paw-stepper__item">2. Dog profile</div>
+      </div>
+
+      <div class="paw-card">
+        <h3>What you can add next</h3>
+        <p>Email, password, photo, dog name, breed, match goals, gender, and who your dog wants to meet.</p>
+      </div>
+    </section>
+
+    <section class="paw-form-panel" data-controller="signup-flow">
+      <form class="paw-form" data-action="submit->signup-flow#finish" novalidate>
+        <div class="paw-form__section" data-signup-flow-target="step">
+          <div>
+            <label class="paw-label" for="email">Email</label>
+            <input class="paw-field" id="email" name="email" type="email" placeholder="you@example.com" required>
+          </div>
+
+          <div>
+            <label class="paw-label" for="password">Password</label>
+            <input class="paw-field" id="password" name="password" type="password" placeholder="Create a password" minlength="8" required>
+            <div class="paw-help">Use at least 8 characters.</div>
+          </div>
+
+          <div class="paw-actions-row">
+            <a class="paw-button paw-button--ghost" href="<%= root_path %>">Back</a>
+            <button class="paw-button paw-button--primary" data-action="signup-flow#next" type="button">Continue</button>
+          </div>
+        </div>
+
+        <div class="paw-form__section" data-signup-flow-target="step" hidden>
+          <div>
+            <label class="paw-label" for="photo">Dog photo</label>
+            <input class="paw-field" id="photo" name="photo" type="file" accept="image/*">
+          </div>
+
+          <div class="paw-field-grid">
+            <div>
+              <label class="paw-label" for="dog_name">Dog name</label>
+              <input class="paw-field" id="dog_name" name="dog_name" type="text" placeholder="Mochi" required>
+            </div>
+
+            <div>
+              <label class="paw-label" for="breed">Dog breed</label>
+              <input class="paw-field" id="breed" name="breed" type="text" placeholder="Golden Retriever" required>
+            </div>
+          </div>
+
+          <div>
+            <span class="paw-label">What are they looking for?</span>
+            <div class="paw-checkboxes">
+              <label class="paw-checkbox">
+                <input type="checkbox" name="looking_for[]" value="playdates">
+                <span>Playdates 🐾<small>Short, friendly hangouts.</small></span>
+              </label>
+
+              <label class="paw-checkbox">
+                <input type="checkbox" name="looking_for[]" value="friends">
+                <span>New dog friends 🐕<small>Make long-term pals.</small></span>
+              </label>
+
+              <label class="paw-checkbox">
+                <input type="checkbox" name="looking_for[]" value="breeding">
+                <span>Breeding 🧬<small>For compatible pairing.</small></span>
+              </label>
+
+              <label class="paw-checkbox">
+                <input type="checkbox" name="looking_for[]" value="adoption">
+                <span>Adoption 🏡<small>Find a forever home.</small></span>
+              </label>
+
+              <label class="paw-checkbox">
+                <input type="checkbox" name="looking_for[]" value="training">
+                <span>Training buddies 🎓<small>Practice and learn together.</small></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="paw-field-grid">
+            <div>
+              <label class="paw-label" for="gender">Dog gender</label>
+              <select class="paw-select" id="gender" name="gender" required>
+                <option value="">Choose one</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="paw-label" for="preferred_gender">Looking for</label>
+              <select class="paw-select" id="preferred_gender" name="preferred_gender" required>
+                <option value="">Choose one</option>
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="paw-actions-row">
+            <button class="paw-button paw-button--ghost" data-action="signup-flow#back" type="button">Back</button>
+            <button class="paw-button paw-button--primary" type="submit">Create account</button>
+          </div>
+        </div>
+
+        <div class="paw-message is-hidden" data-signup-flow-target="message"></div>
+      </form>
+    </section>
+  </div>
+</main>
